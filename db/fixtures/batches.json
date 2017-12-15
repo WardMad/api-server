@@ -1,0 +1,27 @@
+[
+  {
+    "number": 3,
+    "title": "Green Group",
+    "summary": "3 Students",
+    "start": "2017-10-30",
+    "end": "2017-12-21",
+    "ingredients": [
+      {
+        "name:": "Vladimir Putin",
+        "photo": " ",
+        "color": "green"
+      },
+      {
+        "name:": "Donald Trump",
+        "photo": " ",
+        "color": "yellow"
+      },
+      {
+        "name:": "Mark Rutte",
+        "photo": " ",
+        "color": "green"
+      }
+
+    ]
+  }
+]

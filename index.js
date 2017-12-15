@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const passport = require('./config/auth')
 
-const { recipes, users, sessions } = require('./routes')
+const { batches, users, sessions } = require('./routes')
 
 const PORT = process.env.PORT || 3030
 
@@ -13,7 +13,7 @@ let app = express()
   .use(passport.initialize())
 
   // Our routes
-  .use(recipes)
+  .use(batches)
   .use(users)
   .use(sessions)
 

@@ -1,23 +1,23 @@
 // db/seed.js
 const request = require('superagent')
 const user = require('./fixtures/user.json')
-const recipes = require('./fixtures/recipes.json')
+const batches = require('./fixtures/batches.json')
 
 const createUrl = (path) => {
   return `${process.env.HOST || `http://localhost:${process.env.PORT || 3030}`}${path}`
 }
 
-const createRecipes = (token) => {
-  return recipes.map((recipe) => {
+const createBatchs = (token) => {
+  return batches.map((batch) => {
     return request
-      .post(createUrl('/recipes'))
+      .post(createUrl('/batches'))
       .set('Authorization', `Bearer ${token}`)
-      .send(recipe)
+      .send(batch)
       .then((res) => {
-        console.log('Recipe seeded...', res.body.title)
+        console.log('Batch seeded...', res.body.title)
       })
       .catch((err) => {
-        console.error('Error seeding recipe!', err)
+        console.error('Error seeding batch!', err)
       })
   })
 }
@@ -28,7 +28,7 @@ const authenticate = (email, password) => {
     .send({ email, password })
     .then((res) => {
       console.log('Authenticated!')
-      return createRecipes(res.body.token)
+      return createBatchs(res.body.token)
     })
     .catch((err) => {
       console.error('Failed to authenticate!', err.message)
